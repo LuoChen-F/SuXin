@@ -1,0 +1,110 @@
+
+.navBox{
+    width: 100%;
+    height: 52px;
+    background: #F86867;
+}
+.navBox-content{
+    width: 1170px;
+    height: 52px;
+    margin: 0 auto;
+}
+.navBox-content-ul{
+    width: 240px;
+    margin: 0 auto;
+}
+.navBox-content-ul a:hover{
+    color: black;
+}
+.navBox-content  a{
+    display: block;
+    width: 80px;
+    margin: 0 auto;
+    float: left;
+    font-size: 16px;
+    color: #fff;
+    line-height: 52px;
+    text-align: center;
+}
+/*主要内容开始*/
+.bd-Box{
+    width: 100%;
+    height: 680px;/*648*/
+    background: #fff;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.bd-box-a{
+    width: 100%;
+    height: 36px;
+    color: #37474f;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.bd-box-b{
+    width: 100%;
+    height: 22px;
+    margin-bottom: 22px;
+    font-size: 14px;
+
+}
+.bd-box-b a{
+    color: #00a5c4;
+
+}
+.bd-box-b a:hover{
+    color: skyblue;
+    text-decoration: underline;
+}
+.bd-box-c{
+    width: 100%;
+    height: 43px;
+    color: #37474f;
+    font-size: 36px;
+    margin: 10px auto;
+}
+.bd-box-b i{
+    color: #757575;
+}
+.bd-box-from{
+    width: 100%;
+    height: 439px;
+}
+.bd-box-name{
+    width: 100%;
+    height: 50px;
+    color: #2a333c;
+    font-size: 14px;
+    margin: 20px auto;
+    /*margin-top: -20px;*/
+}
+.bd-box-name input{
+    float: left;
+    width: 154px;
+    height: 28px;
+    margin-top: 3px;
+}
+.bd-box-name textarea{
+    width: 154px;
+    height: 50px;
+    margin-top: 3px;
+}
+.bd-box-YanZ{
+    margin-top: 40px;
+}
+.bd-box-YanZ img{
+    display: block;
+    margin: 10px 0 0 5px;
+    float: left;
+}
+#bd-box-button{
+    width: 72px;
+    height: 28px;
+}
+.line{
+    width: 100%;
+    height: 2px;
+    margin-top: -20px;
+    background: rgba(0,0,0,0.2);
+}
+/*主要内容结束*/

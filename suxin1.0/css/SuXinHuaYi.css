@@ -1,0 +1,131 @@
+.content-before{
+    width: 100%;
+    height: 79px;
+}
+.content-bd{
+    width: 1349px;
+    height: 1089px;
+    margin: 0 auto;
+}
+.content-img{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    background-image: url("../img/thumb (16).jpg");
+    background-size: 100% 100%;
+    float: left;
+    transition: all 0.2s linear;
+}
+.bg2{
+    background-image: url("../img/thumb (18).jpg");
+}
+.bg3{
+    background-image: url("../img/thumb (17).jpg");
+}
+.bg4{
+    background-image: url("../img/thumb (19).jpg");
+}
+.imgZheZhao{
+    width: 100%;
+    height: 100%;
+    float: left;
+    background: rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.content-img:hover .imgZheZhao{
+    background: rgba(0,0,0,0.4);
+    /*transition: 0.3s linear;*/
+}
+.content-img:hover p{
+    color: #fff;
+}
+.content-img:hover h3{
+    color: #fff;
+}
+.content-img:hover .small{
+    background-color: #fff;
+}
+.content-img:hover .button{
+    border: 1px solid #fff;
+    color: #fff;
+}
+.content-img:hover{
+    background-size: 105% 105%;
+    transition: 0.2s ease;
+}
+/*.content-img:hover{
+    animation: demo linear 0.2s forwards  alternate;
+}
+@keyframes demo {
+    0%{
+        background-size: 100% 100%;
+    }
+    100%{
+        background-size: 105% 105%;
+    }
+}*/
+.content-img-center{
+    width: 180px;
+    height: 137px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.center-p1{
+    width: 180px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+}
+.small{
+    width: 20px;
+    height: 3px;
+    background: rgba(255,255,255,0.8);
+    margin: 10px auto;
+}
+.bigWord{
+    width: 180px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 24px;
+    font-weight: 400;
+}
+.button{
+    width: 60px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 3px;
+    margin: 10px auto;
+    line-height: 36px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+}
+.button:hover span{
+    color: #757575;
+}
+.button:hover{
+    border-color: #e4eaec;
+    background-color: #e4eaec;
+    transition: all 0.2s linear;
+}
+.content-LiuBai{
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    padding-top: 25px;
+    box-sizing: border-box;
+}
+.content-line{
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.2);
+}

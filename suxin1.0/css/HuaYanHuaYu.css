@@ -1,0 +1,226 @@
+body {
+    background: #eeeeee;
+}
+
+.HuaYanHuaYu {
+    background: #ffffff;
+    /*border-bottom: 1px solid #757575;*/
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15)
+}
+
+.header-right a {
+    color: #000;
+}
+
+/*花言花语开始*/
+.wordBox {
+    width: 100%;
+    height: 120px;
+}
+
+.wordBox > h1 {
+    width: 200px;
+    height: 62px;
+    color: #F67A82;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 62px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*花言花语结束*/
+/*主要内容开始*/
+.bdBox {
+    width: 1170px;
+    height: 1960px;
+    margin: 0 auto;
+}
+.bdRightBig{
+    width: 877px;
+    height: 1940px;
+    background: #ffffff;
+    float: left;
+}
+.RightBd{
+    width: 818px;
+    height: 1820px;
+    margin: 30px auto;
+}
+.RightBd-one{
+    width: 818px;
+    height: 170px;
+}
+.RightBd-one-img{
+    width: 180px;
+    height: 160px;
+    float: left;
+}
+.RightBd-one-img img{
+    height: 160px;
+}
+.RightBd-one-word{
+    width: 637px;
+    height: 160px;
+    float: right;
+}
+.RightBd-one-word a{
+    color: #2a333c;
+    font-size: 22px;
+    font-weight: 400;
+}
+.RightBd-one-word a:hover{
+    color: #00a5c4;
+    text-decoration: underline;
+}
+.wordP1{
+    width: 637px;
+    margin-top: 20px;
+    color: #76838f;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 300;
+    //多行文本省略号显示
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.wordP2{
+    color: #a3afb7;
+    font-size: 16px;
+    font-weight: 300;
+ }
+.wordP2-span{
+    margin: 0 10px;
+}
+.RightLine{
+    width: 818px;
+    height: 1px;
+    border-bottom: 1px solid #eeeeee;
+    margin: 30px auto;
+}
+.RightBottom{
+    width: 275px;
+    height: 39px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    line-height: 39px;
+}
+.up{
+    width: 74px;
+    height: 39px;
+    border: 1px solid #e4eaec;
+    color: #ccd5db;
+    float: left;
+}
+.down{
+    border-left: 0;
+    color: #76838f;
+}
+.BottomOne{
+    width: 39px;
+    height: 39px;
+    border: 1px solid #e4eaec;
+    color: #76838f;
+    float: left;
+    border-left: 0;
+}
+.RightBottom div:hover{
+    background-color: rgba(0,0,0,0.04);
+}
+.RightBottom:hover .choice{
+    background-color: #f86867;
+}
+.choice{
+    background: #f86867;
+    border: 1px solid #f86867;
+    color: #fff;
+}
+.bdLeftBox{
+    width: 293px;
+    height: 354px;
+    float: right;
+}
+.LeftBd{
+    width: 262px;
+    height: 100%;
+    float: right;
+    background: #ffffff;
+}
+.LeftFrom{
+    display: block;
+    width: 223px;
+    height: 36px;
+    margin: 20px auto;
+    position: relative;
+}
+.LeftFrom input{
+    width: 223px;
+    height: 36px;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+#inputs:focus{
+    outline: none;
+    border: 1px solid #00a5c4;
+}
+.LeftFrom input::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.FromImg{
+    width: 26px;
+    height: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.FromImg i{
+    line-height: 36px;
+    text-align: center;
+    font-size: 12px;
+}
+.LeftLine{
+    width: 223px;
+    height: 1px;
+    margin: 20px auto;
+    border-bottom: 1px solid #e4eaec;
+}
+.WeiNinTuiJian{
+    width: 223px;
+    height: 21px;
+    margin: 10px auto;
+    font-size: 18px;
+    font-weight: 300;
+    color: #37474f;
+}
+.LeftUl:hover a,.WeiNinTuiJian:hover a{
+    color: #00a5c4;
+    text-decoration: underline;
+}
+.LeftUl{
+    width: 223px;
+    height: 44px;
+    border: 1px solid #e4eaec;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 44px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.LeftUl a,.WeiNinTuiJian a{
+    color: #37474f;
+}
+.LeftUl-border{
+    border-top: 0;
+}
+/*主要内容结束*/
+/*白条*/
+.white{
+    width: 100%;
+    height: 20px;
+    background: #fff;
+}
