@@ -1,0 +1,69 @@
+.bdBox{
+    height: 3400px;
+}
+.bdRightBig{
+    height: 3350px;
+}
+.RightBd{
+    height: 3200px;
+}
+.RightBd-one {
+    height: 60px;
+}
+
+.RightBd-one-word {
+    width: 818px;
+    height: 60px;
+}
+
+.RightBd-one-word a {
+    font-size: 32px;
+}
+
+.word2A {
+    margin-top: 10px;
+}
+
+.Right-img{
+    width: 818px;
+    height: 460px;
+    margin: 20px auto;
+}
+.Right-img img{
+    height: 460px;
+}
+.Right-bd-p {
+    display: block;
+    margin: 15px auto;
+    font-size: 18px;
+    font-weight: 300;
+    color: #222;
+}
+.RightBottoms{
+    width: 818px;
+    height: 50px;
+    margin: -10px auto;
+}
+.RightBottoms-Left{
+    width: 172px;
+    height: 43px;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 14px;
+    line-height: 43px;
+    text-align: center;
+    float: left;
+}
+.RightBottoms-Left a{
+    color: #76838f;
+}
+.RightBottoms-Left:hover{
+    border: 1px solid #00a5c4;
+    color: #00a5c4;
+}
+.RightBottoms-Left:hover a{
+    color: #00a5c4;
+}
+.RightBottoms-Right{
+    float: right;
+}
