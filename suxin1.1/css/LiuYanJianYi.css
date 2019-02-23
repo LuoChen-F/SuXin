@@ -1,0 +1,226 @@
+#LiuYan-box{
+    width: 160px;
+    height: 0px;
+    background: #fff;
+    margin-top: -20px;
+    float: right;
+    overflow: hidden;
+    position: relative;
+    transition: 0.2s linear;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+#FanHui{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+#FanHui i{
+    color: #00a5c4;
+    line-height: 10px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    display: none;
+}
+.LiuYanA{
+    width: 160px;
+    height: 40px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    line-height: 40px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+.A-border{
+    border: 0;
+}
+#LiuYan-box a{
+    color: black;
+}
+.liuYan:hover #LiuYan-box {
+    height: 100px;
+
+}
+.liuYan:hover #FanHui i{
+    display: block;
+}
+
+#LiuYan-box a:hover{
+    color: #00a5c4;
+}
+/*主要内容开始*/
+.bd-Box{
+    width: 1170px;
+    height: 900px;
+    margin: 0 auto;
+}
+.bdRight-Big{
+    width: 780px;
+    height: 850px;
+    background: #fff;
+    float: left;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.bdRight-bd {
+    width: 720px;
+    height: 679px;
+}
+.bdRight-bd li{
+    width: 718px;
+    height: 79px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.bdRight-one-line{
+    width: 718px;
+    height: 1px;
+    background: rgba(0,0,0,0.2);
+    margin: 20px auto;
+}
+.bdRight-one{
+    width: 718px;
+    height: 57px;
+    /*background: #ff6700;*/
+}
+.Right-one-img{
+    width: 46px;
+    height: 53px;
+    margin: 0 auto;
+    float: left;
+    line-height: 58px;
+    text-align: center;
+}
+.Right-one-img i{
+    font-size: 42px;
+    color: #757575;
+}
+.Right-one-word{
+    width: 672px;
+    height: 53px;
+    margin: 0 auto;
+    float: right;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.Right-one-word-p{
+    font-size: 14px;
+    color: #76838f;
+    margin-top: 15px;
+}
+.word-up{
+    height: 20px;
+    width: 662px;
+    font-size: 14px;
+}
+.name{
+    margin-top: 10px;
+    float: left;
+}
+.time{
+    float: right;
+    color: #a3afb7;
+    font-size: 75%;
+}
+.bdRight-comment{
+    width: 662px;
+    height: 63px;
+    background: #f3f7f9;
+    border: 1px solid #e4eaec;
+    border-radius: 3px;
+    box-shadow: inset 0 0 1px rgba(0,0,0,.02);
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #2a333c;
+    font-size: 14px;
+}
+.HaveComment{
+    height: 120px;
+}
+.bdLeft-Box{
+    width: 390px;
+    height: 464px;
+    float: right;
+}
+.Left-Bd{
+    width: 360px;
+    height: 464px;
+    background: #fff;
+    float: right;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.Left-input,.input-opinion{
+    width: 300px;
+    height: 36px;
+    border: 1px solid #e4eaec;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.Left-input input{
+    width: 300px;
+    height: 36px;
+    border: 0;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+.Left-input input::placeholder,.input-opinion textarea::placeholder{
+    color: rgba(0,0,0,0.3);
+}
+.input-opinion{
+    height: 124px;
+}
+.input-opinion textarea{
+    width: 300px;
+    height: 124px;
+    padding-left: 15px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    border: 0;
+}
+#YanZM{
+    display: block;
+    width: 187px;
+    float: left;
+}
+#YanZM-pic{
+    width: 111px;
+    height: 36px;
+    background: #f3f7f9;
+    border-left: 1px solid #e4eaec;
+    float: right;
+}
+#YanZM-pic img{
+    display: block;
+    width: 80px;
+    margin: 8px auto;
+}
+.Left-button{
+    width: 300px;
+    height: 36px;
+    background: #00a5c4;
+    position: relative;
+    text-align: center;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+}
+.Left-button-ZheZhao{
+    width: 300px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(255,255,255,0.4);
+}
+.Left-button:hover .Left-button-ZheZhao{
+    height: 36px;
+}
+/*主要内容结束*/

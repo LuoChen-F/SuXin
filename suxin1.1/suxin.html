@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>素馨</title>
+    <link rel="stylesheet" href="css/suxin.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1019572_z5jgfm6c8re.css">
+</head>
+<body>
+<!--素馨首页顶部导航开始-->
+    <header class="suxin-header">
+        <div class="header-content">
+            <div class="header-left">
+                <img src="img/1497971419.png" alt="">
+            </div>
+            <ul class="header-right">
+                <li id="step">
+                    <a href="">网站首页</a>
+                </li>
+                <li>
+                    <a href="HuaYanHuaYu.html">花言花语</a>
+                </li>
+                <li>
+                    <a href="SuXinDongTai.html">素馨动态</a>
+                </li>
+                <li>
+                    <a href="https://shop233437329.taobao.com/">淘宝商城</a>
+                </li>
+                <li>
+                    <a href="SuXinHuaYi.html">素馨花艺</a>
+                </li>
+                <li>
+                    <a href="LiuYanJianYi.html">留言建议</a>
+                </li>
+                <li>
+                    <a href="GuanYuSuXin.html">关于素馨</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+<!--素馨首页顶部导航结束-->
+<!--轮播图开始-->
+    <div class="picture-box">
+        <div class="picture-img">
+            <img src="img/1530266608.JPG" alt=""  class="active">
+            <img src="img/15491938268114349.jpg" alt="">
+            <div href="" class="a-left">
+                <div href="" class="aa-left">
+                    <i class="iconfont icon-next-copy"></i>
+                </div>
+            </div>
+            <div href="" class="a-right">
+                <div href="" class="aa-right">
+                    <i class="iconfont icon-xiangyou"></i>
+                </div>
+            </div>
+        </div>
+        <ul class="picture-dot">
+            <li class="active"></li>
+            <li></li>
+        </ul>
+    </div>
+<script>
+    let dot = document.querySelectorAll(".picture-dot>li");
+    let img = document.querySelectorAll(".picture-img>img");
+    let flag = false;
+    dot.forEach(function (ele,index) {
+        ele.onclick = function () {
+            flag = true;
+            for(let i = 0; i < img.length; i ++){
+                dot[i].classList.remove("active");
+                img[i].classList.remove("active");
+            }
+            dot[index].classList.add("active");
+            img[index].classList.add("active");
+        }
+    });
+
+    let now = 0;
+    function move(){
+        now ++;
+        if(now === img.length){
+            now = 0;
+        }
+        if(now === -1){
+            now = img.length -1;
+        }
+        for (let i = 0; i < img.length; i ++){
+            dot[i].classList.remove("active");
+            img[i].classList.remove("active");
+        }
+        dot[now].classList.add("active");
+        img[now].classList.add("active");
+    }
+    let flash = setInterval(move,2000);
+
+    let banner = document.querySelector(".picture-box");
+    console.log(banner);
+    banner.onmouseenter=function () {
+        clearInterval(flash);
+    };
+    banner.onmouseleave=function () {
+        if(flag){
+            return ;
+        }
+        flash = setInterval(move,2000)
+    };
+
+    let next = document.querySelector(".aa-right>i");
+    let previous = document.querySelector(".aa-left>i");
+    // console.log(previous);
+    next.onclick = function () {
+            flag = true;
+            move();
+    };
+    previous.onclick = function () {
+            flag = true;
+            now -= 2;
+            move();
+    }
+</script>
+<!--轮播图结束-->
+<!--素馨花艺开始-->
+    <div class="hy-box">
+        <div class="hy-db">
+            <div class="hy-h3">
+                <div class="hy-h3-word">素馨花艺</div>
+                <div  class="h3-more" href="">
+                    <div class="jiantou"></div>
+                    More
+                </div>
+            </div>
+            <p>
+                花艺师与您一同分享素馨花卉给您的生活带去的花香世界。
+            </p>
+            <div class="hy-lunbo">
+                <div class="hy-left">
+                    <i class="iconfont icon-zuo"></i>
+                </div>
+                <div class="hy-right">
+                    <i class="iconfont icon-you-copy-copy"></i>
+                </div>
+                <div class="hy-pic pic-one">
+                    <img src="img/thumb.jpg" alt="">
+                    <h4>小彩瓷随心插</h4>
+                    <p>小彩瓷随意搭配小菊、康乃馨，即便不
+                        需要专业的花艺师，也能做出清新脱俗的感觉。
+                    </p>
+                    <i class="iconfont icon-shexiang"></i>
+                    <a href="">查看详情</a>
+                </div>
+                <div class="hy-pic">
+                    <img src="img/thumb11.jpg" alt="">
+                    <h4>桌花瓶插花</h4>
+                    <p>这些争鲜斗艳的花朵如冬日深夜火焰般温暖，浓烈。火红
+                        色多头玫瑰、香橙色郁金香与紫罗兰碰撞穿插，浓缩成精..
+                    </p>
+                    <i class="iconfont icon-shexiang"></i>
+                    <a href="">查看详情</a>
+                </div>
+                <div class="hy-pic">
+                    <img src="img/thumb (24).jpg" alt="">
+                    <h4>迷你花束</h4>
+                    <p>迷你花束，简洁时尚，选择一束鲜花表达自己的情感，小小花束，大大心意。
+                    </p>
+                    <i class="iconfont icon-shexiang"></i>
+                    <a href="">
+                        查看详情
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--素馨花艺结束-->
+
+<!--素馨花语开始-->
+    <div class="hyu-box">
+        <div class="hyu-db">
+            <div class="hy-h3">
+                <div class="hy-h3-word">素馨花语</div>
+                <div  class="h3-more">
+                    <!--<div class="jiantou aaa"></div>-->
+                    More
+                </div>
+            </div>
+            <ul class="hyu-ul">
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(1).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">多肉入新家</a>
+                            </h4>
+                            <p>
+                                多肉必须经过一段时间适应期，也就是安全度过缓
+                                苗期，就说明她入盆成功，真正进入新家了。首先我们需要晾根.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2018-07-15</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 871</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(2).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">爱莲说</a>
+                            </h4>
+                            <p>
+                                六月份的尾巴，气候似乎比往年又燥热了些许。花卉市场的鲜
+                                切花生的愈发绚丽多姿，不过最夺目的当属那“出淤.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2018-06-15</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 278</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(3).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">花在冬日</a>
+                            </h4>
+                            <p>
+                                初雪悄然而至，洋洋洒洒飘了数日，难得天空放晴，这些花儿最让
+                                人心心念念了！冬日的花房比起其他季节并没有.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2018-07-25</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 225</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(4).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">最适合教师节的迷你花束</a>
+                            </h4>
+                            <p>
+                                在诸多的传统节日中，教师节是一个既令人肃然起敬又
+                                饱含慈爱深情的节日。自古以来就有“一日为师终身为父”.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2017-09-18</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 227</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(5).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">秋如黑天鹅般优雅的到来</a>
+                            </h4>
+                            <p>
+                                伴着街头偶尔飘落的黄叶，和着萧瑟的凉风划过脸
+                                颊的不忍，秋正如镜头中低吟的黑天鹅般优雅的到来，不声不响.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2018-07-15</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 96</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(6).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">那些配材花的点睛之笔</a>
+                            </h4>
+                            <p>
+                                在花艺作品的制作中一般都有三个板块融合穿插而成，她们分工明确而又密切合作，她们承认重点花材不可替代的.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2017-08-04</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 110</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(7).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">适合家庭的摆台花</a>
+                            </h4>
+                            <p>
+                                经常会有人来咨询哪些花卉适宜家庭摆台花，既能彰显花
+                                的婀娜多姿、楚楚动人，又便于养护，上班族回到家中看.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2017-07-16</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 197</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-list">
+                        <div class="li-list-L">
+                            <a href="">
+                                <img src="img/thumb%20(8).jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="li-list-R">
+                            <h4>
+                                <a href="HuaYanHuaYuWith.html">绿萝的养护</a>
+                            </h4>
+                            <p>
+                                对于花友而言，绿萝可能是养在家中的第一盆绿植。
+                                她的新叶是夏日峰回路转的一簇簇清凉，而且大家似乎都看到.....
+                            </p>
+                            <p class="list-R-p">
+                                <span class="R-p-a">2017-07-13</span>
+                                <span class="R-p-b">王亚楠</span>
+                                <span class="R-p-c"><i class="iconfont icon-liulan"></i> 89</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--素馨花语结束-->
+<!--素馨花卉工作室开始-->
+    <div class="work-box">
+        <div class="work-bd">
+            <h3 class="hy-h3">
+                素馨花卉工作室
+            </h3>
+            <p id="work-p">
+                <span>
+                     郑州素馨花卉有限公司由优秀的花艺、花卉设计师王亚楠于2017年成立。
+                </span>
+            </p>
+            <p >
+                <span>
+                    经营范围：花卉、工艺品、饰品的销售；礼仪策划；花卉、苗木种植技术咨询。
+                </span>
+            </p>
+            <p >
+                <span>
+                    前期以鲜花、花束的包装及零售为主，逐渐过渡到花艺培训、家庭园艺
+                    等花香生活的指导，以及与花卉相关的文学创作。
+                </span>
+            </p>
+            <p >
+                <span>
+                    公司致力于将多彩花艺带入寻常人家，让对生活有着更高追求的人们
+                    享受温馨素雅的花香世界，力求将这种文化做到极致。
+                </span>
+            </p>
+            <p >
+                <span>
+                    公司地址：郑州市 中牟县 育才巷 县直一初中家属院 1单元201室
+                </span>
+            </p>
+            <p >
+                <span>
+                    联系电话：0371-62180519  15890062947
+                </span>
+            </p>
+            <p >
+                <span>
+                    电子邮箱：office@suxinhuahui.com
+                </span>
+            </p>
+            <p >
+                <span>
+                </span>
+            </p>
+            <p id="map">
+                <img src="img/staticimage.png" alt="">
+            </p>
+
+        </div>
+        <div class="bottom"></div>
+    </div>
+<!--素馨花卉工作室结束-->
+<!--素馨首页底部开始-->
+    <footer class="foot-box">
+        <div class="foot-a">
+            <a href="" class="Haoba" >
+                <!--<i class="iconfont icon-weixin"></i>-->
+                <img src="img/weixin.png" alt="">
+                <div class="ErWeiMa">
+                    <img src="img/1496718375368861.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <i class="iconfont icon-qq"></i>
+                <!--<img src="img/qq.png" alt="">-->
+            </a>
+            <a href="">
+                <i class="iconfont icon-youxiang2"></i>
+                <!--<img src="img/email.png" alt="">-->
+            </a>
+        </div>
+        <p class="foot-p">
+            <a href="" class="foot-p-a1">
+                豫ICP备17021305号
+            </a>
+            <img  class="footimg" src="img/gonganbeian.png" alt="">
+            <a href="" class="foot-p-a1">
+                豫公网安备 41012202000160号
+            </a>
+        </p>
+        <p class="foot-p">
+            联系电话 0371-62180519  15890062947
+        </p>
+        <p class="foot-p high">
+            郑州素馨花卉有限公司 版权所有 © 2017-2021
+        </p>
+    </footer>
+<!--素馨首页底部结束-->
+
+</body>
+</html>
