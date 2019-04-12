@@ -1,0 +1,192 @@
+
+{include file='common/header'}
+<link rel="stylesheet" href="/static/css/suxin.css">
+<link rel="stylesheet" href="/static/css/animate.css">
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_1019572_79gdmxtudtg.css">
+
+<!--轮播图开始-->
+<div class="banner">
+    <div class="inner">
+        <div class="img-box">
+            <img src="/static/img/1549193825524606.jpg" alt="">
+        </div>
+        <div class="img-box">
+            <img src="/static/img/1530266608.JPG" alt="">
+        </div>
+        <div class="img-box">
+            <img src="/static/img/1549193825524606.jpg" alt="">
+        </div>
+        <div class="img-box">
+            <img src="/static/img/1530266608.JPG" alt="">
+        </div>
+    </div>
+    <div class="prev arrow">
+        <i class="iconfont icon-next-copy "></i>
+    </div>
+    <div class="next arrow">
+        <i class="iconfont icon-xiangyou"></i>
+    </div>
+    <ul class="picture-dot">
+        <li class="active"></li>
+        <li></li>
+    </ul>
+</div>
+<!--轮播图结束-->
+<!--雨辰花艺开始-->
+<div class="hy-box">
+    <div class="hy-db">
+        <div class="hy-h3">
+            <div class="hy-h3-word">雨辰花艺</div>
+            <div  class="h3-more" href="">
+                <div class="jiantou"></div>
+                More
+            </div>
+        </div>
+        <p>
+            花艺师与您一同分享雨辰花卉给您的生活带去的花香世界。
+        </p>
+
+        <div class="lunBo-box">
+            <div class="hy-lunbo">
+                <div class="hy-pic-box">
+                    {volist name="data3" id='v' offset=3 length=3}
+                    <div class="hy-pic">
+                        <img src="{$v.thumb}" alt="">
+                        <h4>{$v.title}</h4>
+                        <p>{$v.description}</p>
+                        <a href="{:url('/index/huayi/show',['id'=>$v.id])}">
+                            <i class="iconfont icon-shexiang"></i>查看详情
+                        </a>
+                    </div>
+                    {/volist}
+                    {volist name="data3" id='v' }
+                    <div class="hy-pic">
+                        <img src="{$v.thumb}" alt="">
+                        <h4>{$v.title}</h4>
+                        <p>{$v.description}</p>
+                        <a href="{:url('/index/huayi/show',['id'=>$v.id])}">
+                            <i class="iconfont icon-shexiang"></i>查看详情
+                        </a>
+                    </div>
+                    {/volist}
+                    {volist name="data3" id='v' offset=1 length=3}
+                    <div class="hy-pic">
+                        <img src="{$v.thumb}" alt="">
+                        <h4>{$v.title}</h4>
+                        <p>{$v.description}</p>
+                        <a href="{:url('/index/huayi/show',['id'=>$v.id])}">
+                            <i class="iconfont icon-shexiang"></i>查看详情
+                        </a>
+                    </div>
+                    {/volist}
+                </div>
+            </div>
+            <div class="hy-left arrows">
+                <i class="iconfont icon-zuo"></i>
+            </div>
+            <div class="hy-right arrows">
+                <i class="iconfont icon-you-copy-copy"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<!--雨辰花艺结束-->
+
+<!--雨辰花语开始-->
+<div class="hyu-box">
+    <div class="hyu-db">
+        <div class="hy-h3">
+            <div class="hy-h3-word">雨辰花语</div>
+            <div  class="h3-more">
+                <div class="jiantou aaa"></div>
+                More
+            </div>
+        </div>
+        <ul class="hyu-ul">
+            {volist name="data1" id='v'}
+            <li class="animate-left animated">
+                <div class="li-list">
+                    <div class="li-list-L">
+                        <a href="{:url('/index/huayan/show',['id'=>$v.id])}">
+                            <img src="{$v.thumb}" alt="">
+                        </a>
+                    </div>
+                    <div class="li-list-R">
+                        <h4>
+                            <a href="{:url('/index/huayan/show',['id'=>$v.id])}">{$v.title}</a>
+                        </h4>
+                        <p class="list-R-p-a">{$v.description}</p>
+                        <p class="list-R-p">
+                            <span class="R-p-a">{$v.time|date="Y-m-d",###}</span>
+                            <span class="R-p-b">{$v.name}</span>
+                            <span class="R-p-c"><i class="iconfont icon-liulan"></i>{$v.view}</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            {/volist}
+
+        </ul>
+    </div>
+
+</div>
+<!--雨辰花语结束-->
+<!--雨辰花卉工作室开始-->
+<div class="work-box">
+    <div class="work-bd">
+        <h3 class="hy-h3">
+            雨辰花卉工作室
+        </h3>
+        <p id="work-p">
+                <span>
+                     雨辰花卉有限公司由优秀的花艺、花卉设计师林雨辰于2017年成立。
+                </span>
+        </p>
+        <p >
+                <span>
+                    经营范围：花卉、工艺品、饰品的销售；礼仪策划；花卉、苗木种植技术咨询。
+                </span>
+        </p>
+        <p >
+                <span>
+                    前期以鲜花、花束的包装及零售为主，逐渐过渡到花艺培训、家庭园艺
+                    等花香生活的指导，以及与花卉相关的文学创作。
+                </span>
+        </p>
+        <p >
+                <span>
+                    公司致力于将多彩花艺带入寻常人家，让对生活有着更高追求的人们
+                    享受温馨素雅的花香世界，力求将这种文化做到极致。
+                </span>
+        </p>
+        <p >
+                <span>
+                   公司地址：苏州市 相城区 城通路 县直一初中家属院 1单元201室
+                </span>
+        </p>
+        <p >
+                <span>
+                    联系电话：0371-62180519  15890062947
+                </span>
+        </p>
+        <p >
+                <span>
+                    电子邮箱：office@yuchenhuahui.com
+                </span>
+        </p>
+        <p >
+                <span>
+                </span>
+        </p>
+        <div id="allmap"></div> <!--放置地图-->
+    </div>
+    <div class="bottom"></div>
+</div>
+<!--雨辰花卉工作室结束-->
+{include file='common/footer'}
+<!--返回顶部按钮开始-->
+<div class="back">
+    <i class="iconfont icon-een"></i>
+</div>
+<!--返回顶部按钮结束-->
+<script src="/static/js/index.js"></script>

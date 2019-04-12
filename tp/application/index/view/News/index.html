@@ -1,0 +1,92 @@
+{include file='common/header'}
+<link rel="stylesheet" href="/static/css/HuaYanHuaYu.css">
+<!--花言花语开始-->
+<div class="wordBox"></div>
+<div class="wordBox">
+    <h1>
+        雨辰动态
+    </h1>
+</div>
+<!--花言花语结束-->
+<!--主要内容开始-->
+<div class="bdBox">
+    <div class="bdRightBig">
+        <div class="RightBd">
+            <ul >
+                {volist name='data' id='v'}
+                <li>
+                    <a href="{:url('/index/news/show',['id'=>$v.id])}">
+                        <div class="RightBd-one">
+                            <div class="RightBd-one-img">
+                                <img  src="{$v.thumb}" alt="">
+                            </div>
+                            <div class="RightBd-one-word">
+                                <h4>
+                                    <a href="{:url('/index/news/show',['id'=>$v.id])}">{$v.title}</a>
+                                </h4>
+                                <p class="wordP1">
+                                    {$v.description}
+                                </p>
+                                <p class="wordP2">
+                                    <span>{$v.time|date='Y-m-d',###}</span>
+                                    <span class="wordP2-span">{$v.name}</span>
+                                    <span>
+                                    <i class="iconfont icon-liulan"></i>
+                                    {$v.view}
+                                </span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="RightLine"></div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="RightBottom">
+            {$data->render()}
+        </div>
+    </div>
+    <div class="bdLeftBox">
+        <div class="LeftBd">
+            <from class="LeftFrom">
+                <input type="text" placeholder="Search" id="inputs">
+                <div class="FromImg">
+                    <a href="">
+                        <i class="iconfont icon-sousuo"></i>
+                    </a>
+                </div>
+            </from>
+            <div class="LeftLine"></div>
+            <div class="WeiNinTuiJian">
+                为您推荐
+            </div>
+            <div class="LeftUl-box">
+                {volist name='data1' id='v'}
+                <div class="LeftUl">
+                    <a href="{:url('/index/news/show',['id'=>$v.id])}">{$v.title}</a>
+                </div>
+                {/volist}
+            </div>
+
+            <div class="LeftLine"></div>
+            <div class="WeiNinTuiJian">
+                <a href="{:url('/index/news/index">所有文章</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--主要内容结束-->
+<div class="white"></div>
+<!--雨辰首页底部开始-->
+{include file='common/footer'}
+<!--雨辰首页底部结束-->
+<!--返回顶部按钮开始-->
+<div class="back">
+    <i class="iconfont icon-een"></i>
+</div>
+<!--返回顶部按钮结束-->
+<script src="/static/js/fanhuidinbu.js"></script>
+</body>
+</html>

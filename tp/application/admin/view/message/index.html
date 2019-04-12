@@ -1,0 +1,180 @@
+{include file="common/header"}
+<div class="layui-container" style="margin-top: 20px">
+    <div class="layui-row">
+        <div class="layui-col-sm4 layui-col-sm-offset8">
+            <div class="layui-inline">
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="search" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" id="searchBtn">搜索</button>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="layui-table" style="text-align: center">
+    <colgroup>
+        <col width="200"><!--每一列的宽度-->
+        <col width="200">
+    </colgroup>
+    <thead>
+    <tr >
+        <th style="text-align: center">姓名</th>
+        <th style="text-align: center">电话</th>
+        <th style="text-align: center">时间</th>
+        <th style="text-align: center">电子邮件</th>
+        <th style="text-align: center">内容</th>
+        <th style="text-align: center">回复</th>
+        <th style="text-align: center">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<div id="pager"></div>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-sm6">
+            <form class="layui-form" action="javaScript:void(0)" lay-verify="required" style="display: none;">
+                <input type="hidden"name="id" class="id">
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">回复</label>
+                    <div class="layui-input-block">
+                        <textarea name="reply" placeholder="请输入回复内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{include file="common/footer"}
+<script>
+    layui.use(['layer','laypage','jquery','form'], function(){
+        var $ = layui.$; //重点处
+        var layer = layui.layer;
+        var laypage = layui.laypage;
+        var pageSize=5;  //每一页要取几条数据
+        var searchval="";
+        var form=layui.form;
+        function parseTime(time) {
+            time*=1000;
+            var date= new Date();
+            date.setTime(time);
+            var year=date.getFullYear();
+            var month=date.getMonth()+1;
+            var day=date.getDay();
+            var hour=date.getHours();
+            var mins=date.getMinutes();
+            var secs=date.getSeconds();
+            return year+"/"+month+"/"+day+" "+hour+":"+mins+":"+secs;
+        }
+        function render(page,search) {
+            search=search||"";
+            $.get("{:url('admin/message/select')}",{pageSize:pageSize,page:page,search:search},function (r) {
+                if (r.code===200){
+                    layer.msg(r.msg);
+                    var str="";
+                    r.data.forEach(function (obj,index) {
+                        str+="<tr id="+obj.id+">" +
+                            "<td>"+obj.name+"</td>" +
+                            "<td>"+obj.tel+"</td>" +
+                            "<td>"+parseTime(obj.time)+"</td>" +
+                            "<td>"+obj.email+"</td>" +
+                            "<td>"+obj.content+"</td>" +
+                            "<td>"+obj.reply+"</td>" +
+                            "<td style='display: flex;justify-content: space-around'><button class='layui-btn layui-btn-danger del'>删除</button>" +
+                            "<button class='layui-btn reply'>回复</button>" +
+
+                            "</tr>";
+                    });
+                    //内容放置
+                    $("tbody").html(str);
+                    //分页渲染
+                    laypage.render({
+                        elem:'pager',
+                        limit: pageSize,
+                        count:r.total,
+                        curr:page,
+                        jump:function (obj,first) {
+                            if(first){
+                                return;
+                            }
+                            var page=obj.curr;
+                            render(page,search);
+                        }
+                    });
+                }else{
+                    layer.msg(r.msg);
+                }
+            });
+        }
+        render(1);
+        $("#searchBtn").click(function () {
+
+            var val=$("[name=search]").val();
+            if (val===""){
+                layer.msg("请输入搜索的内容");
+                return;
+            }
+            searchval=val;
+            render(1,val);
+        });
+        //点击删除    删除信息
+        $("table").on("click",".del",function () {
+            var that=this;
+            layer.confirm('确定删除吗?', {icon: 3, title:'提示'}, function(index){
+                var id=$(that).parent().parent().attr("id");
+                $.get("/admin/message/delete",{id:id},function (r) {
+                    if (r.code===200){
+                        layer.msg(r.msg);
+                        render(1,searchval);
+                    }else{
+                        layer.msg(r.msg);
+                    }
+                    layer.close(index);
+                });
+            });
+        });
+        //点击回复显示留言框
+        $("table").on("click",".reply",function () {
+            if ($(".layui-form").css("display")!=="none"){
+                layer.confirm('确定取消当前编辑吗？', {icon: 3, title:'提示'}, function(index){
+                    var id=$(this).parent().parent().attr("id");
+                    $(".id").val(id);
+                    $(".layui-form").show();
+                    $(".layui-textarea").val("");
+                    layer.close(index);
+                });
+                return;
+            }
+            var id=$(this).parent().parent().attr("id");
+            $(".id").val(id);
+            $(".layui-form").show();
+        });
+        form.on('submit(formDemo)', function(){
+            var str=$(".layui-form").serialize();
+            $.post("/admin/message/reply",str,function (r) {
+                if (r.code===200){
+                    layer.msg(r.msg,function () {  //回调函数  弹出结束后再提示
+                        render(1);
+                        $(".layui-form").hide();
+                        $(".layui-textarea").val("");
+                    });
+                }else{
+                    layer.msg(r.msg);
+                    $(".layui-textarea").val("");
+                }
+            })
+        });
+    });
+
+</script>

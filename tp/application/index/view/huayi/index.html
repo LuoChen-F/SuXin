@@ -1,0 +1,38 @@
+{include file='common/header'}
+<link rel="stylesheet" href="/static/css/HuaYanHuaYu.css">
+<link rel="stylesheet" href="/static/css/SuXinHuaYi.css">
+<!--主要内容开始-->
+<div class="content-before"></div>
+<div class="content-bd">
+    {volist name="data" id='v'}
+    <div class="content-img">
+        <img src="{$v.thumb}" alt="">
+        <div class="imgZheZhao"></div>
+        <div class="content-img-center">
+            <p class="center-p1">
+                {$v.time|date="Y-m-d",###}
+            </p>
+            <div class="small"></div>
+            <h3 class="bigWord">
+                {$v.title}
+            </h3>
+            <a href="{:url('/index/huayi/show',['id'=>$v.id])}">
+                <div class="button"><span>浏览</span></div>
+            </a>
+        </div>
+    </div>
+    {/volist}
+</div>
+<div class="content-LiuBai">
+    <div class="content-line"></div>
+</div>
+<!--主要内容结束-->
+{include file='common/footer'}
+<!--返回顶部按钮开始-->
+<div class="back">
+    <i class="iconfont icon-een"></i>
+</div>
+<!--返回顶部按钮结束-->
+<script src="/static/js/fanhuidinbu.js"></script>
+</body>
+</html>

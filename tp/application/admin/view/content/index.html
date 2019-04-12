@@ -1,0 +1,125 @@
+{include file="common/header"}
+<div class="layui-container" style="margin-top: 50px">
+    <div class="layui-row">
+        <div class="layui-col-sm11">
+            <form class="layui-form" action="javaScript:void(0)">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">简介</label>
+                    <div class="layui-input-block">
+                        <textarea name="description" placeholder="请输入简介" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">发布者</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">缩略图</label>
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn " id="upload">
+                            <i class="layui-icon">&#xe67c;</i>上传图片
+                        </button>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">预览</label>
+                    <div class="layui-input-block">
+                        <img src="" alt="" id="img">
+                        <input type="hidden" name="thumb" class="thumb">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">内容</label>
+                    <div class="layui-input-block" id="editor">
+                        <!--富文本编辑-->
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">选择框</label>
+                    <div class="layui-input-block">
+                        <select name="type" lay-verify="required">
+                            <option value="1">花言花语</option>
+                            <option value="2">雨辰动态</option>
+                            <option value="3">雨辰花艺</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">是否推荐</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="position" lay-skin="switch" value="1">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{include file="common/footer"}
+<script src="/static/js/wangEditor.min.js"></script>
+<script>
+    layui.use(['form','upload'], function(){
+        var form = layui.form;
+        var upload = layui.upload;
+        var str="";
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            var str=$(".layui-form").serialize();
+            str+="&content="+editor.txt.html();
+            $.post("/admin/content/insert",str,function (r) {
+               if (r.code===200){
+                   layer.msg(r.msg);
+                   $(".layui-form")[0].reset();
+                   $("#img").attr("src","");
+                   editor.txt.html("");
+               }else{
+                   layer.msg(r.msg);
+               }
+            });
+        });
+
+        /*富文本编辑开始*/
+        var E = window.wangEditor;
+        var editor = new E('#editor');
+        // 或者 var editor = new E( document.getElementById('editor') )
+        editor.customConfig.uploadImgServer = '/admin/content/up';
+        editor.customConfig.uploadFileName = 'file';
+        
+        editor.create();
+        /*富文本编辑结束*/
+        /*缩略图上传开始*/
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#upload', //绑定元素
+            url: '/admin/content/upload', //上传接口
+            done: function(r){
+                //上传完毕回调
+                if (r.code==200){
+                    layer.msg(r.msg);
+                }else{
+                    layer.msg(r.msg);
+                }
+                $("#img").attr("src",r.src);
+                $(".thumb").val(r.src);
+            },
+            error: function(r){
+                //请求异常回调
+                layer.msg(r.msg);
+            }
+        });
+        /*缩略图上传结束*/
+    });
+</script>

@@ -1,0 +1,140 @@
+{include file='common/header'}
+<body>
+<link rel="stylesheet" href="/static/css/HuaYanHuaYu.css">
+<link rel="stylesheet" href="/static/css/HuaYanHuaYuWith.css">
+<!--花言花语开始-->
+<div class="wordBox"></div>
+<div class="wordBox">
+    <h1>
+       素馨花艺
+    </h1>
+</div>
+<!--花言花语结束-->
+<!--主要内容开始-->
+<div class="bdBox">
+    <div class="bdRightBig">
+        <div class="RightBd">
+            <ul >
+                <li>
+                    <div class="RightBd-one">
+                        <div class="RightBd-one-word">
+                            <h4>
+                                <a href="">{$data.title}</a>
+                            </h4>
+                            <p class="wordP2 word2A">
+                                <span>{$data.time|date='Y-m-d h:i:s',###}</span>
+                                <span class="wordP2-span">{$data.name}</span>
+                                <span>
+                                    <i class="iconfont icon-liulan"></i>
+                                   {$data.view}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="RightLine"></div>
+                    {$data.content}
+                </li>
+
+            </ul>
+
+        </div>
+       <!-- <div class="RightBottom">
+
+        </div>-->
+        <div class="RightLine"></div>
+
+        <div class="RightBottoms">
+            <div class="RightBottoms-Left">
+                {if $prev.id}
+                <a href="{:url('/index/huayi/show',['id'=>$prev.id])}">上一篇：{$prev.title} </a>
+                {else}
+                <a href="#">上一篇：没有了 </a>
+                {/if}
+            </div>
+            <div class="RightBottoms-Left RightBottoms-Right">
+                {if $next.id}
+                <a href="{:url('/index/huayi/show',['id'=>$next.id])}">下一篇：{$next.title} </a>
+                {else}
+                <a href="#">下一篇：没有了 </a>
+                {/if}
+            </div>
+
+        </div>
+    </div>
+    <div class="bdLeftBox">
+        <div class="LeftBd">
+            <from class="LeftFrom">
+                <input type="text" placeholder="Search">
+                <div class="FromImg">
+                    <a href="">
+                        <i class="iconfont icon-sousuo"></i>
+                    </a>
+                </div>
+            </from>
+            <div class="LeftLine"></div>
+            <div class="WeiNinTuiJian">
+                为您推荐
+            </div>
+            <div class="LeftUl">
+                <a href="HuaYanHuaYuWith.html">适合家庭的摆台花</a>
+            </div>
+            <div class="LeftUl LeftUl-border">
+                <a href="HuaYanHuaYuWith.html">夏日里的一抹清凉</a>
+            </div>
+            <div class="LeftUl LeftUl-border">
+                <a href="HuaYanHuaYuWith.html">亲临进口花材</a>
+            </div>
+            <div class="LeftLine"></div>
+            <div class="WeiNinTuiJian">
+                <a href="HuaYanHuaYu.html">所有文章</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--主要内容结束-->
+<div class="white"></div>
+<!--素馨首页底部开始-->
+<footer class="foot-box">
+    <div class="foot-a">
+        <a href="" class="Haoba" >
+            <!--<i class="iconfont icon-weixin"></i>-->
+            <img  src="/static/img/weixin.png" alt="">
+            <div class="ErWeiMa">
+                <img  src="/static/img/1496718375368861.png" alt="">
+            </div>
+        </a>
+        <a href="">
+            <i class="iconfont icon-qq"></i>
+            <!--<img  src="/static/img/qq.png" alt="">-->
+        </a>
+        <a href="">
+            <i class="iconfont icon-youxiang2"></i>
+            <!--<img  src="/static/img/email.png" alt="">-->
+        </a>
+    </div>
+    <p class="foot-p">
+        <a href="" class="foot-p-a1">
+            豫ICP备17021305号
+        </a>
+        <img  class="footimg"  src="/static/img/gonganbeian.png" alt="">
+        <a href="" class="foot-p-a1">
+            豫公网安备 41012202000160号
+        </a>
+    </p>
+    <p class="foot-p">
+        联系电话 0371-62180519  15890062947
+    </p>
+    <p class="foot-p high">
+        郑州素馨花卉有限公司 版权所有 © 2017-2021
+    </p>
+</footer>
+<!--素馨首页底部结束-->
+<!--返回顶部按钮开始-->
+<div class="back">
+    <i class="iconfont icon-een"></i>
+</div>
+<!--返回顶部按钮结束-->
+<script src="/static/js/fanhuidinbu.js"></script>
+</body>
+</html>

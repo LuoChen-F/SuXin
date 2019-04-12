@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雨辰花卉-{$active}</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/HuaYanHuaYu.css">
+    <link rel="stylesheet" href="/static/css/LiuYanJianYi.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1019572_185cxuwhtau.css">
+</head>
+<body>
+<div class="wordBox"></div>
+<div class="wordBox">
+    <h1>
+        留言建议
+    </h1>
+</div>
+<!--花言花语顶部导航开始-->
+<header class="suxin-header HuaYanHuaYu">
+    <div class="header-content">
+        <div class="header-left">
+            <img  src="/static/img/1497971419.png" alt="">
+        </div>
+        <ul class="header-right">
+            <li id="{if $active=='index'}step{/if}" >
+                <a href="/">网站首页</a>
+            </li>
+            <li id="{if $active=='huayanhuayu'}step{/if}">
+                <a href="{:url('/index/Huayan/index')}">花言花语</a>
+            </li>
+            <li id="{if $active=='news'}step{/if}">
+                <a href="{:url('/index/news/index')}">雨辰动态</a>
+            </li>
+            <li >
+                <a href="https://shop233437329.taobao.com/">淘宝商城</a>
+            </li>
+            <li id="{if $active=='huayi'}step{/if}">
+                <a href="{:url('/index/huayi/index')}">雨辰花艺</a>
+            </li>
+            <li id="{if $active=='liuyan'}step{/if}" class="liuYan">
+                <a href="LiuYanJianYi.html">
+                    留言建议
+                    <i class="iconfont icon-xialajiantouxiangxia"></i>
+                </a>
+                <div id="LiuYan-box">
+                    <div id="FanHui">
+                        <i class="iconfont icon-shangsanjiaoxiangshangmianxing"></i>
+                    </div>
+                    <div class="LiuYanA">
+                        <a href="{:url('/index/liuyan/tijiao')}">提交留言</a>
+                    </div>
+                    <div class="LiuYanA A-border">
+                        <a href="{:url('/index/liuyan/tijiao')}">查看留言</a>
+                    </div>
+                </div>
+            </li>
+            <li  id="{if $active=='guanyu'}step{/if}">
+                <a href="{:url('/index/guanyu/index')}">关于雨辰</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!--花言花语顶部导航结束-->
+<!--主要内容开始-->
+<div class="bd-Box ">
+    <div class="bdRight-Big">
+        <div class="bdRight-bd">
+            <ul class="bdRight-bd">
+                <li>
+                    {volist name="data" id='v'}
+                    <div class="bdRight-one">
+                        <div class="Right-one-img">
+                            <i class="iconfont icon-touxiang"></i>
+                        </div>
+                        <div class="Right-one-word">
+                            <div class="word-up">
+                                <p class="name">{$v.name}</p>
+                                <p class="time">{$v.time|date='Y-m-d H:i:s',###}</p>
+                            </div>
+                            <p class="Right-one-word-p">{$v.content}</p>
+                            {if $v.reply!=""}
+                            <div class="bdRight-comment">
+                                <p>
+                                    {$v.reply}
+                                </p>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="bdRight-one-line"></div>
+                    {/volist}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form action="" id="form">
+        <div class="bdLeft-Box">
+            <div class="Left-Bd">
+                <div class="Left-input">
+                    <input type="text" name="name" placeholder="姓名">
+                </div>
+                <div class="Left-input">
+                    <input type="tel"  name="tel" placeholder="联系电话">
+                </div>
+                <div class="Left-input">
+                    <input type="email" name="email" placeholder="电子邮箱">
+                </div>
+                <div class="input-opinion">
+                    <textarea name="content" cols="41" rows="9" placeholder="您的建议"></textarea>
+                </div>
+                <div class="Left-input">
+                    <input type="text" name="code" placeholder="验证码" id="YanZM">
+                    <div id="YanZM-pic">
+                        {:captcha_img()}
+                    </div>
+                </div>
+                <div class="Left-button submit ">
+                    <div class="Left-button-ZheZhao"></div>
+                    提交
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="white"></div>
+<!--主要内容结束-->
+<div class="white"></div>
+{include file='common/footer'}
+<!--返回顶部按钮开始-->
+<div class="back">
+    <i class="iconfont icon-een"></i>
+</div>
+<!--返回顶部按钮结束-->
+<script src="/static/js/fanhuidinbu.js"></script>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.validate.min.js"></script>
+<script>
+    $("#form").validate({
+        rules:{
+            name:{
+                required:true,
+            },
+            tel:{
+                required:true,
+            },
+            email:{
+                required:true,
+            },
+            content:{
+                required:true,
+            },
+            code:{
+                required:true,
+            },
+        },
+        messages:{
+            name:{
+                required:"请输入姓名",
+            },
+            tel:{
+                required:"请输入电话",
+            },
+            email:{
+                required:"请输入电子邮件",
+            },
+            content:{
+                required:"请输入内容",
+            },
+            code:{
+                required:"请输入验证码",
+            },
+        }
+    })
+    $(".submit").click(function () {
+        if ($("#form").valid()){
+            var str=$("#form").serialize();
+            $.post("/index/Liuyan/add",str,function (r) {
+                if (r.code===200){
+                    $("#form")[0].reset(); // 表单内容清空
+                    alert("留言成功");
+                    location.reload(); //重新加载页面
+                }else{
+                    alert("留言失败");
+                    console.log(r.msg);
+                }
+            })
+        }
+    })
+</script>

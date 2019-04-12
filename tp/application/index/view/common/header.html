@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雨辰花卉-{$active}</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1019572_185cxuwhtau.css">
+</head>
+<body>
+<!--花言花语顶部导航开始-->
+<header class="suxin-header HuaYanHuaYu">
+    <div class="header-content">
+        <div class="header-left">
+            <img  src="/static/img/1497971419.png" alt="">
+        </div>
+        <ul class="header-right">
+            <li id="{if $active=='首页'}step{/if}" >
+                <a href="/">网站首页</a>
+            </li>
+            <li id="{if $active=='花言花语'}step{/if}">
+                <a href="{:url('/index/Huayan/index')}">花言花语</a>
+            </li>
+            <li id="{if $active=='雨辰动态'}step{/if}">
+                <a href="{:url('/index/news/index')}">雨辰动态</a>
+            </li>
+            <li >
+                <a href="https://shop233437329.taobao.com/">淘宝商城</a>
+            </li>
+            <li id="{if $active=='雨辰花艺'}step{/if}">
+                <a href="{:url('/index/huayi/index')}">雨辰花艺</a>
+            </li>
+            <li  id="{if $active=='留言建议'}step{/if}">
+                <a href="{:url('/index/liuyan/index')}">留言建议</a>
+            </li>
+            <li  id="{if $active=='关于雨辰'}step{/if}">
+                <a href="{:url('/index/guanyu/index')}">关于雨辰</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!--花言花语顶部导航结束-->

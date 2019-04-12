@@ -1,0 +1,304 @@
+{include file='common/header'}
+<link rel="stylesheet" href="/static/css/HuaYanHuaYu.css">
+<link rel="stylesheet" href="/static/css/HuaYanHuaYuWith.css">
+<link rel="stylesheet" href="/static/css/swiper.min.css">
+<style>
+    .mask{
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+    /*导航开始*/
+    .nav{
+        width: 100%;
+        height: 0;/*80*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        z-index: 999;
+        transition: all 0.8s;
+        overflow: hidden;
+    }
+    .left{
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        color: #ccc;
+        float: left;
+    }
+    .right{
+        width: 400px;
+        height: 80px;
+        float: right;
+        display: flex;
+        justify-content: space-around;
+        line-height: 80px;
+    }
+    .right span i{
+        font-size: 18px;
+        color: #ccc;
+    }
+    .right span i:hover{
+        color: #757575;
+        cursor: pointer;
+    }
+    .right>span.big i{
+        font-size: 24px;
+    }
+    /*导航结束*/
+    .swiper-container {
+        width: 500px;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+    }
+    .swiper-slide {
+        background-size: 50%;
+        background-position: center;
+    }
+    .gallery-top {
+        height: 100%;
+        width: 80%;
+    }
+    .gallery-thumbs {
+        height: 0;
+        width: 100%;
+        box-sizing: border-box;
+        background: #eee;
+        padding: 10px 0;
+        z-index: 999;
+        border: 2px solid #fff;
+        transition: all 0.8s;
+        /*overflow: hidden;*/
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .button{
+        width: 200px;
+        height: 200px;
+        background: red;
+        position: absolute;
+        top: -200px;
+        right: 0;
+    }
+    .gallery-thumbs .swiper-slide {
+        height: 100%;
+    }
+    .gallery-thumbs .swiper-slide img{
+        height: 100%;
+    }
+    .gallery-thumbs .swiper-slide-thumb-active {
+          border: 2px solid red;
+          box-sizing: border-box;
+      }
+    .swiper-button-black{
+        opacity: 0.2;
+        outline: none;
+    }
+
+</style>
+<!--花言花语开始-->
+<div class="wordBox"></div>
+<div class="wordBox">
+    <h1>
+        花言花语
+    </h1>
+</div>
+<!--花言花语结束-->
+<!--主要内容开始-->
+<div class="bdBox">
+    <div class="bdRightBig">
+        <div class="RightBd">
+            <ul >
+                <li>
+                    <div class="RightBd-one">
+                        <div class="RightBd-one-word">
+                            <h4>
+                                <a href="">{$data.title}</a>
+                            </h4>
+                            <p class="wordP2 word2A">
+                                <span>{$data.time|date='Y-m-d h:i:s',###}</span>
+                                <span class="wordP2-span">{$data.name}</span>
+                                <span>
+                                    <i class="iconfont icon-liulan"></i>
+                                   {$data.view}
+                                </span>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="RightLine"></div>
+                    {$data.content}
+                </li>
+
+            </ul>
+
+        </div>
+       <!-- <div class="RightBottom">
+
+        </div>-->
+        <div class="RightLine"></div>
+
+        <div class="RightBottoms">
+            <div class="RightBottoms-Left">
+                {if $prev.id}
+                <a href="{:url('/index/huayan/show',['id'=>$prev.id])}">上一篇：{$prev.title} </a>
+                {else}
+                <a href="#">上一篇：没有了 </a>
+                {/if}
+            </div>
+            <div class="RightBottoms-Left RightBottoms-Right">
+                {if $next.id}
+                <a href="{:url('/index/huayan/show',['id'=>$next.id])}">下一篇：{$next.title} </a>
+                {else}
+                <a href="#">下一篇：没有了 </a>
+                {/if}
+            </div>
+
+        </div>
+    </div>
+    <div class="bdLeftBox">
+        <div class="LeftBd">
+            <from class="LeftFrom">
+                <input type="text" placeholder="Search">
+                <div class="FromImg">
+                    <a href="">
+                        <i class="iconfont icon-sousuo"></i>
+                    </a>
+                </div>
+            </from>
+            <div class="LeftLine"></div>
+            <div class="WeiNinTuiJian">
+                为您推荐
+            </div>
+            <div class="LeftUl-box">
+                {volist name='data' id='v'}
+                <div class="LeftUl">
+                    <a href="{:url('/index/huayan/show',['id'=>$v.id])}">{$v.title}</a>
+                </div>
+                {/volist}
+            </div>
+            <div class="LeftLine"></div>
+            <div class="WeiNinTuiJian">
+                <a href="HuaYanHuaYu.html">所有文章</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主要内容结束-->
+<div class="white"></div>
+<!-- Swiper -->
+<div class="mask">
+    <div class="nav">
+        <div class="left">
+            <p><span>4</span>/<span>16</span></p>
+        </div>
+        <div class="right">
+            <span class="big recovery"><i class="iconfont icon-huifu1"></i></span>
+            <span class="big small"><i class="iconfont icon-suoxiao"></i></span>
+            <span class="big bigger"><i class="iconfont icon-fangda"></i></span>
+            <span class="all"><i class="iconfont icon-quanping"></i></span>
+            <a href="javascript:;" class="big download"><i class="iconfont icon-xiazai"></i></a>
+            <span class="close"><i class="iconfont icon-guanbi"></i></span>
+        </div>
+    </div>
+    <div class="swiper-button-next swiper-button-black"></div>
+    <div class="swiper-button-prev swiper-button-black"></div>
+    <div class="swiper-container gallery-top">
+        <div class="swiper-wrapper">
+
+        </div>
+    </div>
+
+    <div class="swiper-container gallery-thumbs">
+        <div class="swiper-wrapper">
+
+        </div>
+        <div class="button"></div>
+    </div>
+</div>
+
+<!-- Swiper JS -->
+
+<!--素馨首页底部开始-->
+{include file='common/footer'}
+<!--素馨首页底部结束-->
+<!--返回顶部按钮开始-->
+<div class="back">
+    <i class="iconfont icon-een"></i>
+</div>
+<!--返回顶部按钮结束-->
+<script src="/static/js/fanhuidinbu.js"></script>
+<script src="/static/js/swiper.min.js"></script>
+<script>
+    var flag=true;
+    $(".RightBd img").dblclick(function () {
+        $(".mask").show();
+        if (flag){
+            $(".RightBd img").each(function (index,ele) {
+                var src=ele.src;
+                $(".gallery-top .swiper-wrapper").append(function () {
+                    return "<div class='swiper-slide' ><img src="+src+" alt='' style='width: 100%'></div>"
+                });
+                $(".gallery-thumbs .swiper-wrapper").append(function () {
+                    return "<div class='swiper-slide'><img src="+src+" alt='' style='width: 100%'></div>"
+                });
+            });
+            /*style='background: url("+src+");background-size: cover;'*/
+            var galleryThumbs = new Swiper('.gallery-thumbs', {
+                spaceBetween: 10,
+                slidesPerView: 4,
+                loop: false,
+                freeMode: false,
+                loopedSlides: 5, //looped slides should be the same
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+            });
+            var galleryTop = new Swiper('.gallery-top', {
+                spaceBetween: 10,
+                loop:true,
+                loopedSlides: 5, //looped slides should be the same
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                thumbs: {
+                    swiper: galleryThumbs,
+                },
+            });
+
+        }
+        flag=false;
+    });
+    $(".mask").mousemove(function () {
+        $(".gallery-thumbs").css("height","20%");
+        $(".nav").css("height","80");
+    });
+    $(".close").click(function(){
+        $(".mask").hide();
+    });
+    //实现点击下载功能
+        /*aBtn.click(function (i,v) {
+            $(".RightBd img").each(function (index,ele) {
+                var src=ele.src;
+                console.log($(v).attr("download",src));
+                $(v).attr("href",src);
+            });
+        })*/
+
+    $(".mask .download").each(function(i,v){
+        var imgSrc = $(v).siblings(".gallery-top>div.swiper-wrapper>div.swiper-slide img").attr("src");
+        console.log(imgSrc);
+        $(v).attr("download",imgSrc);
+        $(v).attr("href",imgSrc);
+    })
+</script>
